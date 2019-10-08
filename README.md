@@ -1,4 +1,16 @@
 # MACsec over WAN or Internet
 
-MACsec over WAN or Internet is a leftover from [MACsec on Linux](/2016/08/01/macsec-implementation-on-linux/) that I first tested in 2016 when support for MACsec was just included in the kernel. MACsec adds protection such as integrity, origin authentication and optionally encryption, at Layer 2, between host and access switch, between two access switches or between hosts. This article presents a different scenario when MACsec is used together with a Layer 2 GRE tunnel to protect the traffic between two remote sites, over WAN or Internet, like a site-to-site VPN  at Layer 2.
+MACsec is an interesting alternative to existing tunneling solutions, that protects Layer 2 by performing integrity, origin authentication and, optionally, encryption. Normal use-case is to use MACsec between hosts and access switches, between two hosts or between two switches.
 
+This repository contains bash scripts that simulates a scenario where MACsec is used together with a Layer 2 GRE tunnel to protect the traffic between two remote sites, over WAN or Internet, like a site-to-site VPN  at Layer 2.
+
+## Prerequisites
+
+* you need a Linux machine
+* you must run all scripts with `sudo` (since creating network namespaces and veth interfaces require root privileges)
+
+## Instructions
+
+Note that each `demo-setup-` script has a corresponding `demo-cleanup-` script that removes all the namespaces and veth interfaces used in that demo.
+
+Follow the instructions in my [blog post about MACsec Over WAN](https://costiser.ro/2019/10/08/macsec-over-wan/).
